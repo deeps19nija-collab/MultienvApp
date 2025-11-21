@@ -56,27 +56,31 @@ You should see:
  ## 4. ACCESS INFORMATION (URLs + PORTS)
 Below are the access URLs information: 
 
- Frontend (React)
-Environment	URL	Port
-Frontend App	http://localhost:3001	3001
-Backend Services (Flask)
-Dev Backend
-Type	URL	Port
-API (GET tickets)	http://localhost:3000/api/tickets	3000
-Web UI	http://localhost:3000/	3000
+ **Frontend (React)**
+Environment	URL	Port  
+Frontend App	http://localhost:3001	3001  
 
-Prod Backend
-Type	URL	Port
-API (GET tickets)	http://localhost:3002/api/tickets	3002
-Web UI	http://localhost:3002/	3002
+**Backend Services (Flask)** 
 
- MongoDB Databases
-Purpose	Container	Local Port	Internal Port
-Dev Database	dev-mongo	27018	27017
-Prod Database	prod-mongo	27019	27017
- connect to Mongo using Compass:
-mongodb://localhost:27018
-mongodb://localhost:27019
+**Dev Backend**  
+Type	URL	Port  
+API (GET tickets)	http://localhost:3000/api/tickets	3000  
+Web UI	http://localhost:3000/	3000  
+
+**Prod Backend**  
+Type	URL	Port  
+API (GET tickets)	http://localhost:3002/api/tickets	3002  
+Web UI	http://localhost:3002/  
+
+
+ **MongoDB Databases**  
+Purpose	Container	Local Port	Internal Port  
+
+Dev Database	dev-mongo	27018	27017  
+Prod Database	prod-mongo	27019	27017  
+ connect to Mongo using Compass:  
+mongodb://localhost:27018  
+mongodb://localhost:27019  
 
 ## 5. HOW TO ADD DATA
 Method 1 — Use Backend UI
