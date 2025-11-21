@@ -82,19 +82,21 @@ Prod Database	prod-mongo	27019	27017
 mongodb://localhost:27018  
 mongodb://localhost:27019  
 
-## 5. HOW TO ADD DATA
-Method 1 — Use Backend UI
-Dev:
-http://localhost:3000/
-Prod:
-http://localhost:3002/
-These pages include:
-•	Add ticket form
-•	Mark complete
-•	Delete
+## 5. HOW TO ADD DATA  
 
-Method 2 — Use MongoDB Compass
-Insert documents manually.
+**Method 1 — Use Backend UI  **
+Dev:  
+http://localhost:3000/  
+Prod:  
+http://localhost:3002/  
+
+**These pages include:**
+•	Add ticket form  
+•	Mark complete  
+•	Delete  
+
+**Method 2 — Use MongoDB Compass**  
+Insert documents manually.  
 
 ## 6.  Running Application Screenshots
 
