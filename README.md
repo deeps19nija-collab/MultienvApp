@@ -1,12 +1,108 @@
 # MultienvApp
 
+## MULTI-ENVIRONMENT TICKET MANAGEMENT SYSTEM – DEPLOYMENT DOCUMENTATION
+
+
+## This document explains everything needed to deploy the Dev backend, Prod backend, Frontend, and MongoDB locally using Docker & Docker Compose.
+
+It includes:
+1.  PreRequisites
+2.  EnvironmentVariables
+3.	Full deployment steps
+4.	Access information (ports + URLs)
+5.	How to Add Data
+6.	Running Application Screenshots
+7.	Assumtions
+8.	Limitations.
+
+*************************************************************************************************************************************************
+
+## 1.	PREREQUISITES
+Before deployment, install:
+•	Docker Desktop
+•	Docker Compose (already included in Docker Desktop)
+•	VS Code
+
+
+## 2.	 ENVIRONMENT VARIABLES
+Dev Backend → backend/dev/.env
+FLASK_ENV=development
+MONGO_URI=mongodb://dev-mongo:27017/devdb
+Prod Backend → backend/prod/.env
+FLASK_ENV=production
+MONGO_URI=mongodb://prod-mongo:27017/proddb
+
+## 3. DEPLOYMENT STEPS
+Follow these steps:
+________________________________________
+Step 1 — Open VS Code as Administrator
+If you had permission issues before, running as admin helps.
+________________________________________
+Step 2 — Navigate to Your Project
+cd path/to/multiEnv
+________________________________________
+Step 3 — Build & Start All Services
+docker compose up --build
+________________________________________
+Step 4 — Verify Containers
+docker ps
+You should see:
+•	dev-mongo
+•	prod-mongo
+•	dev-backend
+•	prod-backend
+•	frontend
+
+ ## 4. ACCESS INFORMATION (URLs + PORTS)
+Below are the access URLs information: 
+
+ Frontend (React)
+Environment	URL	Port
+Frontend App	http://localhost:3001	3001
+Backend Services (Flask)
+Dev Backend
+Type	URL	Port
+API (GET tickets)	http://localhost:3000/api/tickets	3000
+Web UI	http://localhost:3000/	3000
+
+Prod Backend
+Type	URL	Port
+API (GET tickets)	http://localhost:3002/api/tickets	3002
+Web UI	http://localhost:3002/	3002
+
+ MongoDB Databases
+Purpose	Container	Local Port	Internal Port
+Dev Database	dev-mongo	27018	27017
+Prod Database	prod-mongo	27019	27017
+ connect to Mongo using Compass:
+mongodb://localhost:27018
+mongodb://localhost:27019
+
+## 5. HOW TO ADD DATA
+Method 1 — Use Backend UI
+Dev:
+http://localhost:3000/
+Prod:
+http://localhost:3002/
+These pages include:
+•	Add ticket form
+•	Mark complete
+•	Delete
+
+Method 2 — Use MongoDB Compass
+Insert documents manually.
+
+## 6.  Running Application Screenshots
+
+**Running Application Logs**  
+https://github.com/deeps19nija-collab/MultienvApp/blob/main/logs.txt
+
 ### docker compose build --no-cache
 <img width="1060" height="542" alt="image" src="https://github.com/user-attachments/assets/b44e93e4-bbcb-4135-8e0d-248a59f59a53" />
 
 ### docker compose up
 <img width="1076" height="557" alt="image" src="https://github.com/user-attachments/assets/ac6ee19c-e5c9-4eae-9f48-369d7e862d9c" />
 
-## Running Application Screenshots
 
 <img width="1918" height="661" alt="image" src="https://github.com/user-attachments/assets/cffd03f1-9207-4b4e-8ea8-127d2739cc5f" />
 
@@ -45,6 +141,19 @@ Marked the ticket as completed
 <img width="1738" height="820" alt="image" src="https://github.com/user-attachments/assets/989f4e78-273c-4224-aaf7-4be05d00476a" />
 
 <img width="1918" height="532" alt="image" src="https://github.com/user-attachments/assets/5194c599-9497-4078-962c-e333c5f4e5c7" />
+
+##  7. ASSUMPTIONS
+1. MongoDB is required for both environments
+2. Frontend expects these env variables:
+•	REACT_APP_DEV_API
+•	REACT_APP_PROD_API
+  No authentication is implemented
+
+## 8. LIMITATIONS
+•	No create/update/delete API for tickets (only web UI supports write actions)
+•	No role-based access or login system
+•	No reverse proxy (NGINX)
+•	Both dev and prod MongoDB run locally (not secure for real use)
 
 
 
